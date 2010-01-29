@@ -1,11 +1,45 @@
 body {
     text-align: center;
-    font-size: 10px;
 }
+
+table,tr,td {
+    margin: 0;
+    padding: 0;
+}
+
+td {
+    position: relative;
+    padding: 1px;
+}
+td a span {
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+}
+
+a:visited {
+    cursor: pointer;
+}
+
+.count-0 a span { color: #aaa; }
+.count-1 a span { color: #0000ff; }
+.count-2 a span { color: #008000; }
+.count-3 a span { color: #ff0000; }
+.count-4 a span { color: #000080; }
+.count-5 a span { color: #800000; }
+.count-6 a span { color: #008080; }
+.count-7 a span { color: #840084; }
+.count-8 a span { color: #008000; }
+
 
 table {
     margin: 0 auto;
-    background-color: #c5c3c6;
+    background-color: #c6c3c6;
+    border-top: 3px solid #777;
+    border-left: 3px solid #777;
+    border-right: 3px solid white;
+    border-bottom: 3px solid white;
+    padding: 3px;
 }
 
 td {
