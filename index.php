@@ -47,15 +47,18 @@ function generate_html_table($grid) {
     echo "</table>\n";
 }
 
-$width = $_GET['w'];
-$height = $_GET['h'];
-
-$grid = generate_grid($width, $height);
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="style.css" />
-<?php
-generate_html_table($grid);
+<link rel="stylesheet" href="style.css" /><?php
+
+if ($_GET['w'] && $_GET['h']) {
+    $width = $_GET['w'];
+    $height = $_GET['h'];
+    $grid = generate_grid($width, $height);
+    generate_html_table($grid);
+} else {
+    echo '<a href="?w=9&h=9&gameid='.rand().'">Start new game</a>';
+}
 echo "</html>";
 ?>
+
