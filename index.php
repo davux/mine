@@ -40,7 +40,8 @@ function generate_html_table($grid) {
             $contents = WS_BOMB == $grid[$x][$y] ? 'x' : $adj_bombs;
             $html_class = WS_BOMB == $grid[$x][$y] ? 'bomb' : "count-$adj_bombs";
             $target = WS_BOMB == $grid[$x][$y] ? '#bombed' : "#x$x-y$y";
-            echo "    <td class=\"$html_class\"><a href=\"$target\"><span>".$contents."</span></a></td>\n";
+            echo "    <td class=\"$html_class\"><a href=\"$target\"><span>".$contents."</span></a>
+                      <a class=\"flag\" href=\"#flag-$x-$y\">flag</a></td>\n";
         }
         echo "  </tr>\n";
     }
