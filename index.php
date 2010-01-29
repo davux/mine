@@ -1,10 +1,10 @@
 <?php
 
-srand($_GET['gameid']);
 define(WS_BOMB, -1);
 define(WS_UNSET, '');
 
 function generate_grid($width=9, $height=9, $density=5.5) {
+    srand($_GET['gameid']);
     $bombs = round($width*$height/$density);
     $field = array_fill(0, $height, array_fill(0, $width, WS_UNSET));
     for ($n=0; $n<$bombs; $n++) {
@@ -56,9 +56,9 @@ if ($_GET['w'] && $_GET['h']) {
     $height = $_GET['h'];
     $grid = generate_grid($width, $height);
     generate_html_table($grid);
-} else {
-    echo '<a href="?w=9&h=9&gameid='.rand().'">Start new game</a>';
 }
+srand((double)microtime()*1000000);
+echo '<a href="?w=9&h=9&gameid='.rand().'">Start new game</a>';
 echo "</html>";
 ?>
 
