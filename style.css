@@ -1,11 +1,20 @@
 body {
+    text-align: center;
     font-size: 10px;
+}
+
+table {
+    margin: 0 auto;
+    background-color: #c5c3c6;
 }
 
 td {
     width: 16px;
     height: 16px;
-    border: 1px solid #999;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid #777;
+    border-bottom: 1px solid #777;
     text-align: center;
 }
 
@@ -13,11 +22,11 @@ a {
     outline: none;
 }
 
-a:focus {
+table a:focus {
     background-color: #ddd;
 }
 
-a {
+table a {
     color: #444;
     font-family: "Luxi sans", "Lucida Grande", Lucida, "Lucida Sans Unicode", sans-serif;
     display: block;
@@ -26,10 +35,10 @@ a {
     text-decoration: none;
 }
 
-span {
+table span {
     visibility: hidden;
 }
-a:visited span {
+table a:visited span {
     visibility: visible;
 }
 
@@ -68,4 +77,15 @@ a.flag:visited {
     width: 16px;
     height: 16px;
     margin-top: -16px;
+}
+
+a#new span {
+    display: none;
+}
+a#new {
+    margin: 0 auto;
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-image: url(img/new.png);
 }

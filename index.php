@@ -50,8 +50,9 @@ function generate_html_table($grid) {
 
 ?><!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="style.css" /><?php
-
+<link rel="stylesheet" href="style.css" />
+<?php
+echo "<a id=\"new\" href=\"?w=9&h=9&gameid=".rand()."\"><span>Start new game</span></a>\n";
 if ($_GET['w'] && $_GET['h']) {
     $width = $_GET['w'];
     $height = $_GET['h'];
@@ -59,7 +60,6 @@ if ($_GET['w'] && $_GET['h']) {
     generate_html_table($grid);
 }
 srand((double)microtime()*1000000);
-echo '<a href="?w=9&h=9&gameid='.rand().'">Start new game</a>';
 echo "</html>";
 ?>
 
