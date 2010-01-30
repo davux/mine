@@ -51,7 +51,10 @@ function generate_html_table($grid) {
 ?><!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="style.css" />
+<article>
+<h1>Minesweeper</h1>
 <?php
+srand((double)microtime()*1000000);
 echo "<a id=\"new\" href=\"?w=9&h=9&gameid=".rand()."\"><span>Start new game</span></a>\n";
 if ($_GET['w'] && $_GET['h']) {
     $width = $_GET['w'];
@@ -59,7 +62,6 @@ if ($_GET['w'] && $_GET['h']) {
     $grid = generate_grid($width, $height);
     generate_html_table($grid);
 }
-srand((double)microtime()*1000000);
-echo "</html>";
 ?>
-
+</article>
+</html>
