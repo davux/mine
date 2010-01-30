@@ -22,7 +22,7 @@ a:visited {
 }
 
 table {
-    margin: 5px auto;
+    margin: 5px;
     padding: 3px;
     counter-reset: bombs;
 }
@@ -147,15 +147,6 @@ a.flag:visited {
     counter-increment: bombs -1;
 }
 
-article p {
-    margin: 0;
-    padding: 0;
-}
-
-article {
-    position: relative;
-}
-
 table::after {
     content: counter(bombs, decimal-leading-zero);
     position: absolute;
@@ -200,11 +191,12 @@ h1 {
 }
 
 article {
-    display: block;
+    display: inline-block;
+    position: relative;
+    width: auto;
     background-color: #c6c3c6;
     border: 1px solid black;
     overflow: visible;
-    width: 202px; /* This breaks grids that are not 9x9. I don't know how to set the element to adapt automatically to its child. */
     margin: 30px auto 0 auto;
     border-left: 2px solid white;
     border-top: 2px solid white;
