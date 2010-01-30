@@ -97,7 +97,7 @@ table .bomb a.info:visited span {
 /* Default flag styling */
 .flag {
     display: none;
-    background-image: url(img/flag1.png);
+    background-image: url(img/flag.png);
     background-position: 4px 4px;
     background-repeat: no-repeat;
     width: 16px;
