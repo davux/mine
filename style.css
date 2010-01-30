@@ -133,6 +133,7 @@ a.flag:visited {
 /* Game decoration */
 
 body {
+    background-color: #008080;
     background-image: url(img/Windows95.jpg);
 }
 
