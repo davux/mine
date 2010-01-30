@@ -39,7 +39,8 @@ td a.info span {
     font-family: "Luxi sans", "Lucida Grande", Lucida, "Lucida Sans Unicode", sans-serif;
     font-weight: bold;
 }
-.count-0 a span { color: #aaa; }
+.count-0 a:visited span {display: none; }
+.count-0 a span { color: #c6c3c6; }
 .count-1 a span { color: #0000ff; }
 .count-2 a span { color: #008000; }
 .count-3 a span { color: #ff0000; }
@@ -53,6 +54,7 @@ table {
     border-left: 3px solid #777;
     border-right: 3px solid white;
     border-bottom: 3px solid white;
+    border-spacing: 0 0;
 }
 td {
     border-top: 1px solid white;
@@ -83,7 +85,7 @@ table span {
 /* For a visited box, the text is shown */
 table a.info:visited span {
     visibility: visible;
-    border: 1px solid #777;
+    border: 1px solid #c6c3c6;
     display: block;
     width: 18px;
     height: 18px;
@@ -156,7 +158,7 @@ article {
     background-color: #c6c3c6;
     border: 1px solid black;
     overflow: visible;
-    width: 220px;
+    width: 202px;
     margin: 30px auto 0 auto;
     border-left: 2px solid white;
     border-top: 2px solid white;
