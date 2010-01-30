@@ -8,7 +8,7 @@ body {
     text-align: center;
 }
 
-tr,td {
+tr,td,ul,li {
     margin: 0;
     padding: 0;
 }
@@ -150,7 +150,7 @@ a.flag:visited {
 table::after {
     content: counter(bombs, decimal-leading-zero);
     position: absolute;
-    top: 25px;
+    top: 45px;
     left: 0;
     margin: 0 0 0 5px;
     color: #f70001;
@@ -179,7 +179,7 @@ body {
 h1 {
     background-color: #0053e2;
     padding: 2px 0 2px 22px;
-    margin: 0 0 5px 0;
+    margin: 0;
     color: white;
     font-weight: bold;
     font-size: 10pt;
@@ -222,4 +222,40 @@ a#new {
 }
 a#new:target {
     background: url(img/lose.png) no-repeat;
+}
+
+/* Menu */
+ul#menu {
+    font-size: .8em;
+    text-align: left;
+    background-color: #bbb;
+    padding: 3px;
+    height: 1.2em;
+}
+ul#menu li {
+    display: inline;
+    padding: 2px .5ex;
+    cursor: default;
+    position: relative;
+}
+ul#menu li ul {
+    display: none;
+}
+ul#menu li:hover ul {
+    display: block;
+    position: absolute;
+    z-index: 300;
+    background-color: #c6c6c6;
+    border-right: 1px solid #555;
+    border-bottom: 1px solid #555;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    left: 0;
+}
+ul#menu li ul li {
+    display: block;
+    margin: 3px 1ex;
+}
+ul#menu li:hover {
+    background-color: #999;
 }

@@ -64,6 +64,16 @@ if (!($_GET['w'] && $_GET['h'])) {
 <title>Minesweeper</title>
 <article>
 <h1>Minesweeper</h1>
+<ul id="menu">
+  <li>Game
+    <ul><li><a href="?w=9&amp;h=9">Beginner</a></li>
+    <li><a href="?w=16&amp;h=16">Intermediate</a></li>
+    <li><a href="?w=30&amp;h=16">Expert</a></li></ul>
+  </li>
+  <li>Help
+    <ul><li><a href="http://da.weeno.net/blog/?post/2010/01/29/Comment-miner-son-apr%C3%A8s-midi">Presentation en francais</a></li></ul>
+  </li>
+</ul>
 <?php
     echo "<a title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;gameid=".rand()."\"><span>Start new game</span></a>\n";
     generate_html_table($grid);
