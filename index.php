@@ -74,7 +74,7 @@ if ($redirect) {
 <title>Minesweeper</title>
 <article>
 <h1>Minesweeper</h1>
-<ul id="menu">
+<ul tabindex="0" id="menu">
   <li>Game
     <ul><li><a href="?w=9&amp;h=9">Beginner</a></li>
     <li><a href="?w=16&amp;h=16">Intermediate</a></li>
