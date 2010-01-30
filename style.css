@@ -137,9 +137,12 @@ a#new span {
     display: none;
 }
 a#new {
-    margin: 0 auto;
+    margin: 2px auto;
     display: block;
-    width: 28px;
-    height: 28px;
-    background-image: url(img/new.png);
+    width: 26px;
+    height: 26px;
+    background: url(img/new.png) no-repeat;
+}
+a#new:target {
+    background: url(img/lose.png) no-repeat;
 }
