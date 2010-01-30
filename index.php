@@ -41,7 +41,7 @@ function generate_html_table($grid) {
             $html_class = WS_BOMB == $grid[$x][$y] ? 'bomb' : "count-$adj_bombs";
             $target = WS_BOMB == $grid[$x][$y] ? '#new' : "#x$x-y$y";
             echo "    <td class=\"$html_class\"><a class=\"info\" href=\"$target\"><span>".$contents."</span></a>
-                      <a class=\"flag\" href=\"#flag-$x-$y\"><span>flag</span></a></td>\n";
+                      <a class=\"flag\" title=\"Flag the box\" href=\"#flag-$x-$y\"><span>flag</span></a></td>\n";
         }
         echo "  </tr>\n";
     }
@@ -64,7 +64,7 @@ if ($_GET['w'] && $_GET['h']) {
 <article>
 <h1>Minesweeper</h1>
 <?php
-    echo "<a id=\"new\" href=\"".htmlentities($url)."\"><span>Start new game</span></a>\n";
+    echo "<a title=\"Start new game\" id=\"new\" href=\"".htmlentities($url)."\"><span>Start new game</span></a>\n";
     generate_html_table($grid);
     echo "</article>\n</html>";
 } else {
