@@ -48,7 +48,13 @@ function generate_html_table($grid) {
     echo "</table>\n";
 }
 
-?><!DOCTYPE html>
+srand((double)microtime()*1000000);
+$url = '?w=9&h=9&gameid='.rand();
+if ($_GET['w'] && $_GET['h']) {
+    $width = $_GET['w'];
+    $height = $_GET['h'];
+    $grid = generate_grid($width, $height);
+    ?><!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="style.css" />
 <!--[if lte IE 8]>
@@ -57,14 +63,10 @@ function generate_html_table($grid) {
 <article>
 <h1>Minesweeper</h1>
 <?php
-srand((double)microtime()*1000000);
-echo "<a id=\"new\" href=\"?w=9&h=9&gameid=".rand()."\"><span>Start new game</span></a>\n";
-if ($_GET['w'] && $_GET['h']) {
-    $width = $_GET['w'];
-    $height = $_GET['h'];
-    $grid = generate_grid($width, $height);
+    echo "<a id=\"new\" href=\"$url\"><span>Start new game</span></a>\n";
     generate_html_table($grid);
+    echo "</article>\n</html>";
+} else {
+    header("Location: $url");
 }
 ?>
-</article>
-</html>
