@@ -51,6 +51,9 @@ function generate_html_table($grid) {
 ?><!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="style.css" />
+<!--[if lte IE 8]>
+<script src="html5-ie.js" type="text/javascript"></script>
+<![endif]-->
 <article>
 <h1>Minesweeper</h1>
 <?php
