@@ -250,7 +250,7 @@ ul#menu li ul {
 ul#menu:focus {
     outline: 0;
 }
-ul#menu:focus li:hover {
+ul#menu li:hover {
     background-color: #33c;
     color: white;
 }
@@ -260,7 +260,7 @@ ul#menu li ul li a {
 ul#menu li ul li:hover a {
     color: white;
 }
-ul#menu:focus li:hover ul {
+ul#menu li:hover ul {
     display: block;
     position: absolute;
     z-index: 300;
