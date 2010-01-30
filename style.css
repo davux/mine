@@ -1,4 +1,9 @@
 /* For a start */
+@font-face {
+    font-family: Digital;
+    src: url('digital.ttf');
+}
+
 body {
     text-align: center;
 }
@@ -19,6 +24,7 @@ a:visited {
 table {
     margin: 5px auto;
     padding: 3px;
+    counter-reset: bombs;
 }
 
 /* Basic box */
@@ -73,6 +79,10 @@ table a {
 /* By default, the box is shown empty */
 table span {
     visibility: hidden;
+}
+
+.bomb {
+    counter-increment: bombs;
 }
 
 /* Visited bombs are shown */
@@ -134,7 +144,35 @@ a.flag:visited {
     border-left: 2px solid white;
     border-bottom: 2px solid #808080;
     border-right: 2px solid #808080;
+    counter-increment: bombs -1;
 }
+
+article p {
+    margin: 0;
+    padding: 0;
+}
+
+article {
+    position: relative;
+}
+
+table::after {
+    content: counter(bombs, decimal-leading-zero);
+    position: absolute;
+    top: 25px;
+    left: 0;
+    margin: 0 0 0 5px;
+    color: #f70001;
+    font-family: digital, monospace;
+    font-size: 25px;
+    background-color: black;
+    border-top: 1px solid #777;
+    border-left: 1px solid #777;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 0 1px;
+}
+
 /* The "flag" word is never shown */
 .flag span {
     display: none;
