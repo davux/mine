@@ -48,12 +48,20 @@ function generate_html_table($grid) {
     echo "</table>\n";
 }
 
-srand((double)microtime()*1000000);
-if (!($_GET['w'] && $_GET['h'])) {
-    header("Location: ?w=9&h=9&gameid=".rand());
+$redirect = 0;
+if (!(($width = $_GET['w']) && ($height = $_GET['h']))) {
+    $width = 9;
+    $height = 9;
+    $redirect = 1;
+}
+if (!($gameid = $_GET['gameid'])) {
+    srand((double)microtime()*1000000);
+    $gameid = rand();
+    $redirect = 1;
+}
+if ($redirect) {
+    header("Location: ?w=$width&h=$height&gameid=$gameid");
 } else {
-    $width = $_GET['w'];
-    $height = $_GET['h'];
     $grid = generate_grid($width, $height);
     ?><!DOCTYPE html>
 <html>
