@@ -18,30 +18,32 @@ function generate_grid($width=9, $height=9, $density=5.5) {
 // -1,-1   0,-1   1,-1
 // -1, 0          1, 0
 // -1, 1   0, 1   1, 1
-function count_adjacent_bombs($field, $x, $y) {
+function count_adjacent_bombs($field, $w, $h) {
     $count = 0;
-    $ox=-1;$oy=-1; if (($x+$ox >= 0) && ($y+$oy >= 0) && (WS_BOMB == $field[$x+$ox][$y+$oy])) $count++;
-    $ox= 0;$oy=-1; if (($x+$ox >= 0) && ($y+$oy >= 0) && (WS_BOMB == $field[$x+$ox][$y+$oy])) $count++;
-    $ox= 1;$oy=-1; if (($x+$ox >= 0) && ($y+$oy >= 0) && (WS_BOMB == $field[$x+$ox][$y+$oy])) $count++;
-    $ox=-1;$oy= 0; if (($x+$ox >= 0) && ($y+$oy >= 0) && (WS_BOMB == $field[$x+$ox][$y+$oy])) $count++;
-    $ox= 1;$oy= 0; if (($x+$ox >= 0) && ($y+$oy >= 0) && (WS_BOMB == $field[$x+$ox][$y+$oy])) $count++;
-    $ox=-1;$oy= 1; if (($x+$ox >= 0) && ($y+$oy >= 0) && (WS_BOMB == $field[$x+$ox][$y+$oy])) $count++;
-    $ox= 0;$oy= 1; if (($x+$ox >= 0) && ($y+$oy >= 0) && (WS_BOMB == $field[$x+$ox][$y+$oy])) $count++;
-    $ox= 1;$oy= 1; if (($x+$ox >= 0) && ($y+$oy >= 0) && (WS_BOMB == $field[$x+$ox][$y+$oy])) $count++;
+    $wmax = count($field);
+    $hmax = count($field[0]);
+    /* -1,-1 */ if (($w >= 1) && ($h >= 1) && (WS_BOMB == $field[$w-1][$h-1])) $count++;
+    /*  0,-1 */ if (($h >= 1) && (WS_BOMB == $field[$w][$h-1])) $count++;
+    /*  1,-1 */ if (($w <= $wmax-1) && ($h >= 1) && (WS_BOMB == $field[$w+1][$h-1])) $count++;
+    /* -1, 0 */ if (($w >= 1) && (WS_BOMB == $field[$w-1][$h])) $count++;
+    /*  1, 0 */ if (($w <= $wmax-1) && (WS_BOMB == $field[$w+1][$h])) $count++;
+    /* -1, 1 */ if (($w >= 1) && ($h <= $hmax-1) && (WS_BOMB == $field[$w-1][$h+1])) $count++;
+    /*  0, 1 */ if (($h <= $hmax-1) && (WS_BOMB == $field[$w][$h+1])) $count++;
+    /*  1, 1 */ if (($w <= $wmax-1) && ($h <= $hmax-1) && (WS_BOMB == $field[$w+1][$h+1])) $count++;
     return $count;
 }
 
 function generate_html_table($grid) {
     echo "<table>\n";
-    for ($x=0; $x<count($grid[0]); $x++) {
+    for ($h=0; $h<count($grid[0]); $h++) {
         echo "  <tr>\n";
-        for ($y=0; $y<count($grid); $y++) {
-            $adj_bombs = count_adjacent_bombs($grid, $x, $y);
-            $contents = WS_BOMB == $grid[$x][$y] ? 'x' : $adj_bombs;
-            $html_class = WS_BOMB == $grid[$x][$y] ? 'bomb' : "count-$adj_bombs";
-            $target = WS_BOMB == $grid[$x][$y] ? '#new' : "#x$x-y$y";
+        for ($w=0; $w<count($grid); $w++) {
+            $adj_bombs = count_adjacent_bombs($grid, $w, $h);
+            $contents = WS_BOMB == $grid[$w][$h] ? 'x' : $adj_bombs;
+            $html_class = WS_BOMB == $grid[$w][$h] ? 'bomb' : "count-$adj_bombs";
+            $target = WS_BOMB == $grid[$w][$h] ? '#new' : "#x$w-y$h";
             echo "    <td class=\"$html_class\"><a class=\"info\" href=\"$target\"><span>".$contents."</span></a>
-                      <a class=\"flag\" title=\"Flag the box\" href=\"#flag-$x-$y\"><span>flag</span></a></td>\n";
+                      <a class=\"flag\" title=\"Flag the box\" href=\"#flag-$w-$h\"><span>flag</span></a></td>\n";
         }
         echo "  </tr>\n";
     }
