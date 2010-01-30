@@ -6,7 +6,7 @@ define(WS_UNSET, '');
 function generate_grid($width=9, $height=9, $density=5.5) {
     srand($_GET['gameid']);
     $bombs = round($width*$height/$density);
-    $field = array_fill(0, $height, array_fill(0, $width, WS_UNSET));
+    $field = array_fill(0, $width, array_fill(0, $height, WS_UNSET));
     for ($n=0; $n<$bombs; $n++) {
         while (WS_BOMB == $field[$rw = rand(0, $width - 1)][$rh = rand(0, $height - 1)])
             ; # already a bomb, retry
@@ -49,8 +49,9 @@ function generate_html_table($grid) {
 }
 
 srand((double)microtime()*1000000);
-$url = '?w=9&h=9&gameid='.rand();
-if ($_GET['w'] && $_GET['h']) {
+if (!($_GET['w'] && $_GET['h'])) {
+    header("Location: ?w=9&h=9&gameid=".rand());
+} else {
     $width = $_GET['w'];
     $height = $_GET['h'];
     $grid = generate_grid($width, $height);
@@ -64,10 +65,8 @@ if ($_GET['w'] && $_GET['h']) {
 <article>
 <h1>Minesweeper</h1>
 <?php
-    echo "<a title=\"Start new game\" id=\"new\" href=\"".htmlentities($url)."\"><span>Start new game</span></a>\n";
+    echo "<a title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;gameid=".rand()."\"><span>Start new game</span></a>\n";
     generate_html_table($grid);
     echo "</article>\n</html>";
-} else {
-    header("Location: $url");
 }
 ?>
