@@ -148,7 +148,7 @@ a.flag:visited {
     counter-increment: bombs -1;
 }
 
-table::after {
+table:after {
     content: counter(bombs, decimal-leading-zero);
     position: absolute;
     top: 45px;
