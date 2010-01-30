@@ -60,10 +60,11 @@ if ($_GET['w'] && $_GET['h']) {
 <!--[if lte IE 8]>
 <script src="html5-ie.js" type="text/javascript"></script>
 <![endif]-->
+<title>Minesweeper</title>
 <article>
 <h1>Minesweeper</h1>
 <?php
-    echo "<a id=\"new\" href=\"$url\"><span>Start new game</span></a>\n";
+    echo "<a id=\"new\" href=\"".htmlentities($url)."\"><span>Start new game</span></a>\n";
     generate_html_table($grid);
     echo "</article>\n</html>";
 } else {
