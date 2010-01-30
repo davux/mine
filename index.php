@@ -32,7 +32,7 @@ function count_adjacent_bombs($field, $x, $y) {
 }
 
 function generate_html_table($grid) {
-    echo "<table id=\"bombed\">\n";
+    echo "<table>\n";
     for ($x=0; $x<count($grid[0]); $x++) {
         echo "  <tr>\n";
         for ($y=0; $y<count($grid); $y++) {
