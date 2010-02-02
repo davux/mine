@@ -70,6 +70,10 @@ td {
     border-bottom: 1px solid #777;
 }
 
+article:active #new {
+    background-image: url(img/uhoh.png);
+}
+
 /* Make the whole box clickable */
 table a {
     display: block;
