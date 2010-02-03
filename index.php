@@ -41,9 +41,12 @@ function mark_empty_box($w, $h, $tag, &$grid) {
     $max_h = count($grid[0]) - 1;
     $grid[$w][$h] = $tag;
     foreach (neighbours($w, $h, $max_w, $max_h) as $neighbour) {
-        $toto = $grid[$neighbour[0]][$neighbour[1]];
-        if (0 === $toto) {
-            mark_empty_box($neighbour[0], $neighbour[1], $tag, $grid);
+        foreach (explode(' ', $grid[$neighbour[0]][$neighbour[1]]) as $value) {;
+            if ('0' === $value) {
+                mark_empty_box($neighbour[0], $neighbour[1], $tag, $grid);
+            } elseif (in_array($value, array(1,2,3,4,5,6,7,8))) {
+                $grid[$neighbour[0]][$neighbour[1]] .= " beach-$tag";
+            }
         }
     }
 }
@@ -80,21 +83,25 @@ function generate_html_table($grid) {
     for ($h=0; $h<count($grid[0]); $h++) {
         echo "  <tr>\n";
         for ($w=0; $w<count($grid); $w++) {
-            $value = $grid[$w][$h];
-            if (substr($value, 0, 6) == 'blank-') {
-                $contents = '&nbsp;';
-                $html_class = 'count-0';
-                $target = $value;
-            } elseif (WS_BOMB == $value) {
-                $contents = 'x';
-                $html_class = 'bomb';
-                $target = 'new';
-            } else { // normal number
-                $contents = $value;
-                $html_class = "count-$value";
-                $target = "x$w-y$h";
+            $additional = '';
+            foreach (explode(' ', $grid[$w][$h]) as $value) {
+                if (substr($value, 0, 6) == 'blank-') {
+                    $contents = '&nbsp;';
+                    $html_class = 'count-0';
+                    $target = $value;
+                } elseif (WS_BOMB == $value) {
+                    $contents = 'x';
+                    $html_class = 'bomb';
+                    $target = 'new';
+                } elseif ('beach-' == substr($value, 0, 6)) {
+                    $additional .= '<a class="beach" href="#'.substr($value,6).'">.</a>';
+                } else { // normal number
+                    $contents = $value;
+                    $html_class = "count-$value";
+                    $target = "x$w-y$h";
+                }
             }
-            echo "    <td class=\"$html_class\"><a class=\"info\" href=\"#$target\"><span>".$contents."</span></a>
+            echo "    <td class=\"$html_class\">$additional<a class=\"info\" href=\"#$target\"><span>".$contents."</span></a>
                       <a class=\"flag\" title=\"Flag the box\" href=\"#flag-$w-$h\"><span>flag</span></a></td>\n";
         }
         echo "  </tr>\n";

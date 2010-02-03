@@ -5,6 +5,10 @@ article {
     display: block;
 }
 
+td a.beach {
+    display: none;
+}
+
 tr,td,ul,li {
     margin: 0;
     padding: 0;
@@ -60,6 +64,7 @@ table span {
 }
 
 /* For a visited box, the text is shown */
+table .beach:visited ~ a.info span,
 table a.info:visited span {
     visibility: visible;
     display: block;

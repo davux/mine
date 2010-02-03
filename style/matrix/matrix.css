@@ -52,6 +52,7 @@ td a {
     height: 25px;
     background-color: #5f5;
 }
+td .beach:visited ~ a,
 td a:visited {
     background-color: transparent;
 }

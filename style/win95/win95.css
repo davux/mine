@@ -186,6 +186,7 @@ table:after {
     border-bottom: 1px solid white;
     padding: 0 1px;
 }
+table .beach:visited ~ a.info span,
 table a.info:visited span {
     border: 1px solid #c6c3c6;
     width: 18px;
