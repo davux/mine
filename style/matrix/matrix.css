@@ -1,0 +1,82 @@
+@font-face {
+    font-family: Matrix;
+    src: url('matrix.ttf');
+}
+
+body {
+    background-color: black;
+    background-image: url(img/background.jpg);
+    background-repeat: no-repeat;
+    font-family: Matrix, monospace;
+}
+
+h1 {
+    color: #5f5;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+h1:before {
+    content: "Matrix ";
+}
+
+.flag {
+    background-image: url(img/flag.png);
+}
+.flag:visited {
+    margin-top: -28px;
+}
+
+#new {
+    color: yellow;
+    background-color: black;
+    width: 20ex;
+    padding: .5em;
+    opacity: 0.8;
+    text-transform: uppercase;
+    display: block;
+    font-size: 1.2em;
+    margin: 1em auto;
+}
+
+.info span {
+    color: yellow;
+    font-weight: bold;
+}
+td {
+    width: 25px;
+    height: 25px;
+}
+
+td a {
+    width: 25px;
+    height: 25px;
+    background-color: #5f5;
+}
+td a:visited {
+    background-color: transparent;
+}
+td.bomb a.info:visited {
+    background-color: red;
+}
+
+/* Counter: counter(bombs) */
+table:after {
+    content: counter(bombs, decimal-leading-zero);
+    color: #5f5;
+}
+
+/* Menu */
+#menu {
+    font-size: .9em;
+}
+
+#menu,
+#menu a {
+    color: white;
+}
+ul#menu li ul:before {
+    content: "> ";
+}
+ul#menu li {
+    display: inline;
+}
