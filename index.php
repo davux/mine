@@ -120,7 +120,8 @@ if ($redirect) {
     fill_numbers($grid);
     ?><!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style/base.css" />
+<link rel="stylesheet" title="Windows 95" href="style/win95/win95.css" />
 <!--[if lte IE 8]>
 <script src="html5-ie.js" type="text/javascript"></script>
 <![endif]-->
