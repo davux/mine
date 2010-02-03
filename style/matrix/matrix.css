@@ -59,6 +59,9 @@ td.bomb a.info:visited {
     background-color: red;
 }
 
+table {
+    border: 2px solid #4a4;
+}
 /* Counter: counter(bombs) */
 table:after {
     content: counter(bombs, decimal-leading-zero);
@@ -79,4 +82,11 @@ ul#menu li ul:before {
 }
 ul#menu li {
     display: inline;
+    font-weight: bold;
+}
+ul#menu li ul li:after {
+    content: '/';
+}
+ul#menu li ul li {
+    font-weight: normal;
 }
