@@ -136,6 +136,7 @@ if ($redirect) {
 <![endif]-->
 <title>Minesweeper, game #<?php echo "$gameid ($width x $height, $bombs mines)" ?></title>
 <article>
+<div id="timer"><div id="timer-1"></div><div id="timer-2"></div><div id="timer-3"></div></div>
 <h1>Minesweeper</h1>
 <ul id="menu">
   <li>Game

@@ -3,6 +3,44 @@
     src: url('digital.ttf');
 }
 
+#timer {
+    background-color: black;
+    height: 25px;
+    width: 44px;
+    position: absolute;
+    right: 0;
+    top: 45px;
+    border-top: 1px solid #777;
+    border-left: 1px solid #777;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+#timer-1, #timer-2, #timer-3 {
+    float: left;
+    margin-left: 2px;
+    width: 12px;
+    height: 25px;
+    background-image: url(img/counter.png);
+    background-position: 0 0px;
+    -webkit-transition-property: background-position;
+    -webkit-transition-timing-function: linear;
+}
+#timer-1 {
+    -webkit-transition-duration: 9000s;
+}
+#timer-2 {
+    -webkit-transition-duration: 900s;
+}
+#timer-3 {
+    -webkit-transition-duration: 90s;
+}
+html:hover #timer-1,
+html:hover #timer-2,
+html:hover #timer-3 {
+    background-position: 0 -1800px;
+}
+
 body {
     background-color: #008080;
     background-image: url(img/Windows95.jpg);
