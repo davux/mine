@@ -6,8 +6,10 @@ allowed. Also, I would like to stick with a static CSS file, if possible.
   - It's possible to go on playing after a game is won or lost.
 
 Nice desired features...
-  - A time counter.
-  - Detection of a won game (with the sunglasses guy).
+  - Detection of a won game:
+    - sunglasses guy,
+    - stop the counter,
+    - lock the grid.
   - Equivalent to the middle-click in standard game: open all remaining boxes around a
     resolved number (for instance the number says '2' and you already found the 2 bombs,
     so middle-clicking on the '2' opens the remaining boxes around).

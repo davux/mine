@@ -8,6 +8,7 @@ Features:
   - Share a given game with your friends by sending them the exact URL.
   - Access your previously won and lost games through the history. If you want to play them again,
     simply remove them from the history.
+  - If your browser supports CSS3 transitions, a time counter.
 
 The whole code, including PHP, is available through git. Simply type:
 $ git clone http://da.weeno.net/code/git-repo/mine.git
