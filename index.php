@@ -9,28 +9,70 @@ function generate_grid($width=9, $height=9, $density=5.5) {
     $field = array_fill(0, $width, array_fill(0, $height, WS_UNSET));
     for ($n=0; $n<$bombs; $n++) {
         while (WS_BOMB == $field[$rw = rand(0, $width - 1)][$rh = rand(0, $height - 1)])
-            ; # already a bomb, retry
+            ; # already a bomb, retry. For a low proportion of bombs, this method is fast.
         $field[$rw][$rh] = WS_BOMB;
     }
     return $field;
 }
 
-// -1,-1   0,-1   1,-1
-// -1, 0          1, 0
-// -1, 1   0, 1   1, 1
-function count_adjacent_bombs($field, $w, $h) {
+function neighbours($w, $h, $max_w, $max_h) {
+    $result = array();
+    if (($w >= 1) && ($h >= 1))
+        $result[] = array($w-1, $h-1);
+    if ($h >= 1)
+        $result[] = array($w, $h-1);
+    if (($w <= $max_w-1) && ($h >= 1))
+        $result[] = array($w+1, $h-1);
+    if ($w >= 1)
+        $result[] = array($w-1, $h);
+    if ($w <= $max_w-1)
+        $result[] = array($w+1, $h);
+    if (($w >= 1) && ($h <= $max_h-1))
+        $result[] = array($w-1, $h+1);
+    if ($h <= $max_h-1)
+        $result[] = array($w, $h+1);
+    if (($w <= $max_w-1) && ($h <= $max_h-1))
+        $result[] = array($w+1, $h+1);
+    return $result;
+}
+
+function mark_empty_box($w, $h, $tag, &$grid) {
+    $max_w = count($grid) - 1;
+    $max_h = count($grid[0]) - 1;
+    $grid[$w][$h] = $tag;
+    foreach (neighbours($w, $h, $max_w, $max_h) as $neighbour) {
+        $toto = $grid[$neighbour[0]][$neighbour[1]];
+        if (0 === $toto) {
+            mark_empty_box($neighbour[0], $neighbour[1], $tag, $grid);
+        }
+    }
+}
+
+function count_adjacent_bombs($grid, $w, $h) {
     $count = 0;
-    $wmax = count($field);
-    $hmax = count($field[0]);
-    /* -1,-1 */ if (($w >= 1) && ($h >= 1) && (WS_BOMB == $field[$w-1][$h-1])) $count++;
-    /*  0,-1 */ if (($h >= 1) && (WS_BOMB == $field[$w][$h-1])) $count++;
-    /*  1,-1 */ if (($w <= $wmax-1) && ($h >= 1) && (WS_BOMB == $field[$w+1][$h-1])) $count++;
-    /* -1, 0 */ if (($w >= 1) && (WS_BOMB == $field[$w-1][$h])) $count++;
-    /*  1, 0 */ if (($w <= $wmax-1) && (WS_BOMB == $field[$w+1][$h])) $count++;
-    /* -1, 1 */ if (($w >= 1) && ($h <= $hmax-1) && (WS_BOMB == $field[$w-1][$h+1])) $count++;
-    /*  0, 1 */ if (($h <= $hmax-1) && (WS_BOMB == $field[$w][$h+1])) $count++;
-    /*  1, 1 */ if (($w <= $wmax-1) && ($h <= $hmax-1) && (WS_BOMB == $field[$w+1][$h+1])) $count++;
+    $wmax = count($grid);
+    $hmax = count($grid[0]);
+    foreach (neighbours($w, $h, $wmax, $hmax) as $neighbour)
+        if (WS_BOMB == $grid[$neighbour[0]][$neighbour[1]])
+            $count++;
     return $count;
+}
+
+function fill_numbers(&$grid) {
+    for ($h=0; $h<count($grid[0]); $h++) {
+        for ($w=0; $w<count($grid); $w++) {
+            if (WS_BOMB != $grid[$w][$h]) {
+                $grid[$w][$h] = count_adjacent_bombs($grid, $w, $h);
+            }
+        }
+    }
+    for ($h=0; $h<count($grid[0]); $h++) {
+        for ($w=0; $w<count($grid); $w++) {
+            if (0 === $grid[$w][$h]) {
+                mark_empty_box($w, $h, "blank-$w-$h", $grid);
+            }
+        }
+    }
 }
 
 function generate_html_table($grid) {
@@ -38,11 +80,21 @@ function generate_html_table($grid) {
     for ($h=0; $h<count($grid[0]); $h++) {
         echo "  <tr>\n";
         for ($w=0; $w<count($grid); $w++) {
-            $adj_bombs = count_adjacent_bombs($grid, $w, $h);
-            $contents = WS_BOMB == $grid[$w][$h] ? 'x' : $adj_bombs;
-            $html_class = WS_BOMB == $grid[$w][$h] ? 'bomb' : "count-$adj_bombs";
-            $target = WS_BOMB == $grid[$w][$h] ? '#new' : "#x$w-y$h";
-            echo "    <td class=\"$html_class\"><a class=\"info\" href=\"$target\"><span>".$contents."</span></a>
+            $value = $grid[$w][$h];
+            if (substr($value, 0, 6) == 'blank-') {
+                $contents = '&nbsp;';
+                $html_class = 'count-0';
+                $target = $value;
+            } elseif (WS_BOMB == $value) {
+                $contents = 'x';
+                $html_class = 'bomb';
+                $target = 'new';
+            } else { // normal number
+                $contents = $value;
+                $html_class = "count-$value";
+                $target = "x$w-y$h";
+            }
+            echo "    <td class=\"$html_class\"><a class=\"info\" href=\"#$target\"><span>".$contents."</span></a>
                       <a class=\"flag\" title=\"Flag the box\" href=\"#flag-$w-$h\"><span>flag</span></a></td>\n";
         }
         echo "  </tr>\n";
@@ -65,6 +117,7 @@ if ($redirect) {
     header("Location: ?w=$width&h=$height&gameid=$gameid");
 } else {
     $grid = generate_grid($width, $height);
+    fill_numbers($grid);
     ?><!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="style.css" />
