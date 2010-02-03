@@ -134,7 +134,8 @@ if ($redirect) {
     <li><a href="?w=30&amp;h=16">Expert</a></li></ul>
   </li>
   <li>Help
-    <ul><li><a href="http://da.weeno.net/blog/?post/2010/01/29/Comment-miner-son-apr%C3%A8s-midi">Presentation en francais</a></li></ul>
+    <ul><li><a href="http://da.weeno.net/blog/?post/2010/01/29/Comment-miner-son-apr%C3%A8s-midi">Presentation en francais</a></li>
+    <li><a href="TODO">Want to help?</a></li></ul>
   </li>
 </ul>
 <?php
