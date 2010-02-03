@@ -112,6 +112,7 @@ $redirect = 0;
 if (!(($width = $_GET['w']) && ($height = $_GET['h']))) {
     $width = 9;
     $height = 9;
+    $_GET['n'] = 10;
     $redirect = 1;
 }
 if (!($gameid = $_GET['gameid'])) {
