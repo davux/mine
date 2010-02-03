@@ -23,22 +23,22 @@
     height: 25px;
     background-image: url(img/counter.png);
     background-position: 0 0px;
-    -webkit-transition-property: background-position;
-    -webkit-transition-timing-function: linear;
+    -webkit-transition: background-position 1000s linear;
+    -o-transition: background-position 1000s linear;
+    -moz-transition: background-position 1000s linear;
+    transition: background-position 1000s linear;
 }
-#timer-1 {
-    -webkit-transition-duration: 9000s;
+/* It should be 180, 1800, 18000 so that the counter stop at "999". Instead,
+   we do a whole loop from "000" to "000", so that browsers that don't support
+   transitions will keep showing "000". */
+html:hover #timer-1 {
+    background-position: 0 -200px;
 }
-#timer-2 {
-    -webkit-transition-duration: 900s;
+html:hover #timer-2 {
+    background-position: 0 -2000px;
 }
-#timer-3 {
-    -webkit-transition-duration: 90s;
-}
-html:hover #timer-1,
-html:hover #timer-2,
 html:hover #timer-3 {
-    background-position: 0 -1800px;
+    background-position: 0 -20000px;
 }
 
 body {
