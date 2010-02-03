@@ -1,8 +1,6 @@
 Open problems. If you want to help, go ahead! Please remember that no Javasript is
 allowed. Also, I would like to stick with a static CSS file, if possible.
   - The game doesn't show well in many browsers.
-  - All adjacent blank boxes (boxes without a number or a bomb) get correctly
-    opened at the same time. Still, the numbers surrounding that area don't get opened.
   - It's not possible to remove a flag.
   - The current way to set a flag is not very practical.
   - It's possible to go on playing after a game is won or lost.
