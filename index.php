@@ -124,7 +124,7 @@ if ($redirect) {
 <!--[if lte IE 8]>
 <script src="html5-ie.js" type="text/javascript"></script>
 <![endif]-->
-<title>Minesweeper</title>
+<title>Minesweeper, game #<?php echo "$gameid ($width x $height)" ?></title>
 <article>
 <h1>Minesweeper</h1>
 <ul id="menu">
