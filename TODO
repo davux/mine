@@ -1,0 +1,10 @@
+Open problems. If you want to help, go ahead! Please remember that no Javasript is allowed. Also, I would like to stick with a static CSS file, if possible.
+
+- The game doesn't show well in many browsers.
+- All adjacent blank boxes (boxes without a number or a bomb) get correctly opened at the same time. Still, the numbers surrounding that area don't get opened.
+- It's not possible to remove a flag.
+
+Nice desired features...
+- A time counter.
+- Detection of a won game (with the sunglasses guy).
+- Equivalent to the middle-click in standard game: open all remaining boxes around a resolved number (for instance the number says '2' and you already found the 2 bombs, so middle-clicking on the '2' opens the remaining boxes around).
