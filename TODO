@@ -1,5 +1,7 @@
-Open problems. If you want to help, go ahead! Please remember that no Javasript is
-allowed. Also, I would like to stick with a static CSS file, if possible.
+If you want to help, go ahead! Please remember that no Javasript is allowed.
+Also, I would like to stick with a static CSS file, if possible.
+
+Problems.
   - The game doesn't show well in many browsers.
   - It's not possible to remove a flag.
   - The current way to set a flag is not very practical.
@@ -13,3 +15,10 @@ Nice desired features...
   - Equivalent to the middle-click in standard game: open all remaining boxes around a
     resolved number (for instance the number says '2' and you already found the 2 bombs,
     so middle-clicking on the '2' opens the remaining boxes around).
+
+Appearance tweaks:
+  - When a game is lost:
+    - display the bombs in open boxes
+    - show the misplaced flags
+    - put a red background to the faulty mine
+  - Use a push effect on the smiley button when pressed
