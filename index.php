@@ -141,7 +141,7 @@ if ($redirect) {
   </li>
 </ul>
 <?php
-    echo "<a title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;gameid=".rand()."\"><span>Start new game</span></a>\n";
+    echo "<a accesskey=\"N\" title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;gameid=".rand()."\"><span>Start <em>n</em>ew game</span></a>\n";
     generate_html_table($grid);
     echo "</article>\n</html>";
 }
