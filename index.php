@@ -3,9 +3,8 @@
 define(WS_BOMB, -1);
 define(WS_UNSET, '');
 
-function generate_grid($width=9, $height=9, $density=5.5) {
+function generate_grid($width=9, $height=9, $bombs) {
     srand($_GET['gameid']);
-    $bombs = round($width*$height/$density);
     $field = array_fill(0, $width, array_fill(0, $height, WS_UNSET));
     for ($n=0; $n<$bombs; $n++) {
         while (WS_BOMB == $field[$rw = rand(0, $width - 1)][$rh = rand(0, $height - 1)])
@@ -120,10 +119,11 @@ if (!($gameid = $_GET['gameid'])) {
     $gameid = rand();
     $redirect = 1;
 }
+$bombs = ($_GET['n'] ? $_GET['n'] : round($width*$height/5.5));
 if ($redirect) {
-    header("Location: ?w=$width&h=$height&gameid=$gameid");
+    header("Location: ?w=$width&h=$height&n=$bombs&gameid=$gameid");
 } else {
-    $grid = generate_grid($width, $height);
+    $grid = generate_grid($width, $height, $bombs);
     fill_numbers($grid);
     ?><!DOCTYPE html>
 <html>
@@ -133,14 +133,14 @@ if ($redirect) {
 <!--[if lte IE 8]>
 <script src="html5-ie.js" type="text/javascript"></script>
 <![endif]-->
-<title>Minesweeper, game #<?php echo "$gameid ($width x $height)" ?></title>
+<title>Minesweeper, game #<?php echo "$gameid ($width x $height, $bombs mines)" ?></title>
 <article>
 <h1>Minesweeper</h1>
 <ul id="menu">
   <li>Game
-    <ul><li><a href="?w=9&amp;h=9">Beginner</a></li>
-    <li><a href="?w=16&amp;h=16">Intermediate</a></li>
-    <li><a href="?w=30&amp;h=16">Expert</a></li></ul>
+    <ul><li><a href="?w=9&amp;h=9&amp;n=10">Beginner</a></li>
+    <li><a href="?w=16&amp;h=16&amp;n=40">Intermediate</a></li>
+    <li><a href="?w=30&amp;h=16&amp;n=99">Expert</a></li></ul>
   </li>
   <li>Help
     <ul><li><a href="http://da.weeno.net/blog/?post/2010/01/29/Comment-miner-son-apr%C3%A8s-midi">Presentation en francais (blog)</a></li>
@@ -149,7 +149,7 @@ if ($redirect) {
   </li>
 </ul>
 <?php
-    echo "<a accesskey=\"N\" title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;gameid=".rand()."\"><span>Start <em>n</em>ew game</span></a>\n";
+    echo "<a accesskey=\"N\" title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;n=$bombs&amp;gameid=".rand()."\"><span>Start <em>n</em>ew game</span></a>\n";
     generate_html_table($grid);
     echo "</article>\n</html>";
 }
