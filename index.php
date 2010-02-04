@@ -86,7 +86,7 @@ function generate_html_table($grid) {
             foreach (explode(' ', $grid[$w][$h]) as $value) {
                 if (substr($value, 0, 6) == 'blank-') {
                     $contents = '&nbsp;';
-                    $html_class = 'count-0';
+                    $html_class = 'count count-0';
                     $target = $value;
                 } elseif (WS_BOMB == $value) {
                     $contents = 'x';
@@ -96,12 +96,11 @@ function generate_html_table($grid) {
                     $additional .= '<a class="beach" href="#'.substr($value,6).'">.</a>';
                 } else { // normal number
                     $contents = $value;
-                    $html_class = "count-$value";
+                    $html_class = "count count-$value";
                     $target = "x$w-y$h";
                 }
             }
-            echo "    <td class=\"$html_class\">$additional<a class=\"info\" href=\"#$target\"><span>".$contents."</span></a>
-                      <a class=\"flag\" title=\"Flag the box\" href=\"#flag-$w-$h\"><span>flag</span></a></td>\n";
+            echo "    <td class=\"$html_class\">$additional<a class=\"info\" href=\"#$target\"><span>".$contents."</span></a><a class=\"flag\" title=\"Flag the box\" href=\"#flag-$w-$h\"><span>flag</span></a></td>\n";
         }
         echo "  </tr>\n";
     }

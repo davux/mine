@@ -37,7 +37,7 @@ td {
 }
 
 /* Number positioning */
-td a.info span {
+td.count a.info span {
     font-size: 12px;
     position: absolute;
 }
@@ -50,28 +50,18 @@ table a {
 }
 
 /* By default, the box is shown empty */
-table span {
-    visibility: hidden;
+td a span {
+    display: none;
 }
 
 .bomb {
     counter-increment: bombs;
 }
 
-/* Visited bombs are shown */
-.bomb a.info:visited {
-    display: block;
-}
-
 /* For a visited box, the text is shown */
-table .beach:visited ~ a.info span,
-table a.info:visited span {
-    visibility: visible;
+td.count .beach:visited ~ a.info span,
+td.count a.info:visited span {
     display: block;
-}
-/* except for bombs */
-table .bomb a.info:visited span {
-    display: none;
 }
 
 /* Default flag styling */
@@ -83,14 +73,16 @@ table .bomb a.info:visited span {
 /* The flagging button */
 td:hover .flag {
     position: absolute;
-    display: inline;
+    display: block;
     z-index: 500;
     margin-top: -3px;
+    margin-left: 10px;
     background-color: white;
     border: 1px solid black;
     opacity: 0.7;
 }
-td:hover .beach:visited ~ a.info + .flag,
+
+td:hover .beach:visited ~ a.flag,
 td:hover .info:visited + .flag {
     display: none;
 }
