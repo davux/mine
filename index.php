@@ -135,7 +135,7 @@ if ($redirect) {
 <script src="html5-ie.js" type="text/javascript"></script>
 <![endif]-->
 <title>Minesweeper, game #<?php echo "$gameid ($width x $height, $bombs mines)" ?></title>
-<article>
+<article id="game">
 <div id="timer"><div id="timer-1"></div><div id="timer-2"></div><div id="timer-3"></div></div>
 <h1>Minesweeper</h1>
 <ul id="menu">
@@ -146,13 +146,15 @@ if ($redirect) {
   </li>
   <li>Help
     <ul><li><a href="http://da.weeno.net/blog/?post/2010/01/29/Comment-miner-son-apr%C3%A8s-midi">Presentation en francais (blog)</a></li>
-    <li><a href="README">Presentation in English</a></li>
-    <li><a href="TODO">Want to help?</a></li></ul>
+    <li><a href="TODO">Want to help?</a></li>
+    <li><a href="#about">About CSS Minesweeper...</a></li></ul>
   </li>
 </ul>
 <?php
     echo "<a accesskey=\"N\" title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;n=$bombs&amp;gameid=".rand()."\"><span>Start <em>n</em>ew game</span></a>\n";
     generate_html_table($grid);
-    echo "</article>\n</html>";
+    echo "</article>\n";
+    include('README.html');
+    echo "</html>";
 }
 ?>
