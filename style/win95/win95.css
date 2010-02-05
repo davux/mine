@@ -280,6 +280,9 @@ td.count a.info:visited span {
     height: 16px;
     margin: 3px;
 }
-#about .close span {
+.button span {
     display: none;
+}
+.minimize {
+    background: url(img/minimize.png) no-repeat;
 }

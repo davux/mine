@@ -1,8 +1,7 @@
 body {
     text-align: center;
 }
-article,
-header {
+article {
     display: block;
 }
 
