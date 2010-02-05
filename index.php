@@ -127,6 +127,7 @@ if ($redirect) {
     fill_numbers($grid);
     ?><!DOCTYPE html>
 <html>
+<link rel="shortcut icon" href="style/win95/img/mine.png" type="image/png" />
 <link rel="stylesheet" href="style/base.css" />
 <link rel="stylesheet" title="Windows 95" href="style/win95/win95.css" />
 <link rel="stylesheet" title="Matrix (work in progress)" href="style/matrix/matrix.css" />
