@@ -205,8 +205,12 @@ td {
     border-right: 1px solid #777;
     border-bottom: 1px solid #777;
 }
-td:hover {
+td:hover a.info {
     background-color: #bbb;
+}
+td:hover .beach:visited ~ a.info,
+td:hover a.info:visited {
+    background-color: transparent;
 }
 
 /* Counter */
