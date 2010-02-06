@@ -2,17 +2,16 @@ body {
     text-align: center;
     counter-reset: bombs;
 }
+* {
+    margin: 0;
+    padding: 0;
+}
 article {
     display: block;
 }
 
 td a.beach {
     display: none;
-}
-
-tr,td,ul,li {
-    margin: 0;
-    padding: 0;
 }
 
 a {
@@ -97,8 +96,6 @@ span.flag {
 
 p#controls {
     position: absolute;
-    margin: 0;
-    padding: 0;
     height: 30px;
     width: 100%;
 }

@@ -88,7 +88,6 @@ input:checked + span.flag {
 article h1 {
     background-color: #0053e2;
     padding: 2px 4px;
-    margin: 0;
     color: white;
     font-weight: bold;
     font-size: 10pt;
@@ -209,7 +208,6 @@ ul#menu li:hover ul {
     opacity: 0.9;
 }
 ul#menu li ul li {
-    margin: 0;
     padding: 1px 16px;
 }
 
@@ -290,7 +288,12 @@ td.count a.info:visited span {
 }
 
 .dialog h2 {
+    margin: 1em 1ex;
     text-align: center;
+}
+
+.dialog p {
+    margin: 1em 0;
 }
 
 #about h2 {
