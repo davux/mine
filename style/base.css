@@ -81,7 +81,7 @@ td:hover input {
 
 td:hover .beach:visited ~ input,
 td:hover .info:visited ~ input {
-    display: none;
+    visibility: hidden;
 }
 
 :checked {
