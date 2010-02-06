@@ -134,7 +134,7 @@ if ($redirect) {
 <!--[if lte IE 8]>
 <script src="html5-ie.js" type="text/javascript"></script>
 <![endif]-->
-<title>Minesweeper, game #<?php echo "$gameid ($width x $height, $bombs mines)" ?></title>
+<title>Minesweeper, game #<?php echo "$gameid ($width"."x$height, $bombs mines = ".round($bombs*100/$width/$height)."%)" ?></title>
 <body id="top">
 
 <article class="dialog" id="intro">
