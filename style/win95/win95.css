@@ -47,7 +47,7 @@ body {
 }
 
 #game:active #new {
-    background-image: url(img/uhoh.png);
+    background-position: 2px -17px;
 }
 
 td.bomb a.info:visited {
@@ -121,16 +121,29 @@ article {
 
 a#new {
     margin: 2px auto;
+    padding: 2px;
     display: block;
-    width: 26px;
-    height: 26px;
-    background: url(img/new.png) no-repeat;
+    width: 17px;
+    height: 17px;
+    background: #c0c0c0 url(img/smiley.png) no-repeat;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    background-position: 2px 2px;
 }
+a#new:active {
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    border-left: 2px solid #808080;
+    border-top: 2px solid #808080;
+}
+
 a#new span {
     display: none;
 }
 #game:target a#new {
-    background: url(img/lose.png) no-repeat;
+    background-position: 2px -36px;
 }
 
 /* The :target won't be permanent, but we have no other choice */

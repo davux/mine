@@ -13,6 +13,3 @@ Nice desired features...
   - Equivalent to the middle-click in standard game: open all remaining boxes around a
     resolved number (for instance the number says '2' and you already found the 2 bombs,
     so middle-clicking on the '2' opens the remaining boxes around).
-
-Appearance tweaks:
-  - Use a push effect on the smiley button when pressed
