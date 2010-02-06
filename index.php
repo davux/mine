@@ -4,7 +4,7 @@ define(WS_BOMB, -1);
 define(WS_UNSET, '');
 
 function generate_grid($width=9, $height=9, $bombs) {
-    srand($_GET['gameid']);
+    srand($_GET['gameid']*$width*$height*$bombs);
     $field = array_fill(0, $width, array_fill(0, $height, WS_UNSET));
     for ($n=0; $n<$bombs; $n++) {
         while (WS_BOMB == $field[$rw = rand(0, $width - 1)][$rh = rand(0, $height - 1)])
