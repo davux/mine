@@ -155,7 +155,8 @@ if ($redirect) {
   </li>
 </ul>
 <?php
-    echo "<a accesskey=\"N\" title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;n=$bombs&amp;gameid=".rand()."\"><span>Start <em>n</em>ew game</span></a>\n";
+    echo "<a href=\"#game\" id=\"lose\"><span>Go to top.</span></a>";
+    echo "<p id=\"controls\"><a accesskey=\"N\" title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;n=$bombs&amp;gameid=".rand()."\"><span>Start <em>n</em>ew game</span></a></p>\n";
     generate_html_table($grid);
     echo "</article>\n";
     include('README.html');

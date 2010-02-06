@@ -90,3 +90,24 @@ td:hover .info:visited ~ input {
 span.flag {
     background-repeat: no-repeat;
 }
+
+#lose span {
+    display: none;
+}
+
+table {
+    margin-top: 40px;
+}
+p#controls {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width: 100%;
+    z-index: 500;
+}
+/* #lose points to the same URL as the mines. When visited (game lost), the control bar expands so that
+   it masks the board and makes it unclickable. */
+#lose:visited + p#controls {
+    height: 400px; /* FIXME: I don't know how to make the height fit exactly the board, so I'm just using a "high enough" value... */
+}

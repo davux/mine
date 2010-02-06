@@ -178,7 +178,7 @@ ul#menu li ul li:hover a {
 ul#menu li:hover ul {
     display: block;
     position: absolute;
-    z-index: 300;
+    z-index: 700;
     background-color: #c6c6c6;
     border-right: 1px solid #444;
     border-bottom: 1px solid #444;
