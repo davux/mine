@@ -156,9 +156,9 @@ you how many mines are left to find.</p>
 </header>
 <ul id="menu">
   <li>Game
-    <ul><li><a href="?w=9&amp;h=9&amp;n=10">Beginner</a></li>
-    <li><a href="?w=16&amp;h=16&amp;n=40">Intermediate</a></li>
-    <li><a href="?w=30&amp;h=16&amp;n=99">Expert</a></li></ul>
+    <ul><li><a href="?w=9&amp;h=9&amp;n=10" title="9x9, 10 mines">Beginner</a></li>
+    <li><a href="?w=16&amp;h=16&amp;n=40" title="16x16, 40 mines">Intermediate</a></li>
+    <li><a href="?w=30&amp;h=16&amp;n=99" title="30x16, 99 mines">Expert</a></li></ul>
   </li>
   <li>Help
     <ul>
