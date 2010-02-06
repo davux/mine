@@ -127,6 +127,8 @@ if ($redirect) {
     fill_numbers($grid);
     ?><!DOCTYPE html>
 <html>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="style/win95/img/mine.png" type="image/png" />
 <link rel="stylesheet" href="style/base.css" />
 <link rel="stylesheet" title="Windows 95" href="style/win95/win95.css" />
@@ -164,7 +166,7 @@ you how many mines are left to find.</p>
   <li>Help
     <ul>
       <li><a href="#intro">How to play?</a></li>
-      <li><a href="http://da.weeno.net/blog/?post/2010/01/29/Comment-miner-son-apr%C3%A8s-midi">Presentation en francais (blog)</a></li>
+      <li><a href="http://da.weeno.net/blog/?post/2010/01/29/Comment-miner-son-apr%C3%A8s-midi">Présentation en français (blog)</a></li>
       <li><a href="TODO">Want to help?</a></li>
       <li><a href="#about">About CSS Minesweeper...</a></li>
     </ul>
