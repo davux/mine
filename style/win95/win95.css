@@ -123,7 +123,7 @@ a#new {
 a#new span {
     display: none;
 }
-a#new:target {
+#game:target a#new {
     background: url(img/lose.png) no-repeat;
 }
 

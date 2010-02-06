@@ -91,7 +91,7 @@ function generate_html_table($grid) {
                 } elseif (WS_BOMB == $value) {
                     $contents = 'x';
                     $html_class = 'bomb';
-                    $target = 'new';
+                    $target = 'game';
                 } elseif ('beach-' == substr($value, 0, 6)) {
                     $additional .= '<a class="beach" href="#'.substr($value,6).'">.</a>';
                 } else { // normal number
@@ -135,6 +135,7 @@ if ($redirect) {
 <script src="html5-ie.js" type="text/javascript"></script>
 <![endif]-->
 <title>Minesweeper, game #<?php echo "$gameid ($width x $height, $bombs mines)" ?></title>
+<body id="top">
 <article id="game">
 <div id="timer"><div id="timer-1"></div><div id="timer-2"></div><div id="timer-3"></div></div>
 <header>
@@ -158,6 +159,6 @@ if ($redirect) {
     generate_html_table($grid);
     echo "</article>\n";
     include('README.html');
-    echo "</html>";
+    echo "</body>\n</html>";
 }
 ?>
