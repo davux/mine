@@ -3,7 +3,6 @@ Also, I would like to stick with a static CSS file, if possible.
 
 Problems.
   - The game doesn't show well in many browsers.
-  - It's not possible to remove a flag.
   - The current way to set a flag is not very practical.
   - It's possible to go on playing after a game is won or lost.
 

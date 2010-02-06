@@ -78,7 +78,7 @@ function fill_numbers(&$grid) {
 }
 
 function generate_html_table($grid) {
-    echo "<table>\n";
+    echo "<form><table>\n";
     for ($h=0; $h<count($grid[0]); $h++) {
         echo "  <tr>\n";
         for ($w=0; $w<count($grid); $w++) {
@@ -100,11 +100,11 @@ function generate_html_table($grid) {
                     $target = "x$w-y$h";
                 }
             }
-            echo "    <td class=\"$html_class\">$additional<a class=\"info\" href=\"#$target\"><span>".$contents."</span></a><a class=\"flag\" title=\"Flag the box\" href=\"#flag-$w-$h\"><span>flag</span></a></td>\n";
+            echo "    <td class=\"$html_class\">$additional<a class=\"info\" href=\"#$target\"><span>".$contents."</span></a><input type=\"checkbox\" /><span class=\"flag\"></span></td>\n";
         }
         echo "  </tr>\n";
     }
-    echo "</table>\n";
+    echo "</table></form>\n";
 }
 
 $redirect = 0;

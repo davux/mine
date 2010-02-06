@@ -64,37 +64,29 @@ td.count a.info:visited span {
     display: block;
 }
 
-/* Default flag styling */
-.flag {
-    display: none;
-    background-repeat: no-repeat;
-}
-
 /* The flagging button */
-td:hover .flag {
+td input {
+    visibility: hidden;
     position: absolute;
-    display: block;
     z-index: 500;
-    margin-top: -3px;
-    margin-left: 10px;
+    margin-top: -5px;
+    margin-left: 5px;
     background-color: white;
     border: 1px solid black;
     opacity: 0.7;
 }
+td:hover input {
+    visibility: visible;
+}
 
-td:hover .beach:visited ~ a.flag,
-td:hover .info:visited + .flag {
+td:hover .beach:visited ~ input,
+td:hover .info:visited ~ input {
     display: none;
 }
 
-/* A flag that was set on a box */
-a.flag:visited {
-    display: block;
-    position: absolute;
+:checked {
     counter-increment: bombs -1;
 }
-
-/* The "flag" word is never shown */
-.flag span {
-    display: none;
+span.flag {
+    background-repeat: no-repeat;
 }

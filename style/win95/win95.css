@@ -55,20 +55,18 @@ td.bomb a.info:visited {
     background-position: 1px 1px;
 }
 
-.flag {
+span.flag {
     background-image: url(img/flag.png);
+    background-color: #c6c3c6;
     background-position: 4px 4px;
     width: 16px;
     height: 16px;
 }
 
-a.flag:visited {
-    margin-left: -2px;
-    margin-top: -2px;
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-    border-bottom: 2px solid #808080;
-    border-right: 2px solid #808080;
+input:checked + span.flag {
+    position: absolute;
+    margin-left: -8px;
+    margin-top: -17px;
 }
 
 article h1 {
@@ -115,15 +113,15 @@ article {
     margin: 30px auto 0 auto;
 }
 
-a#new span {
-    display: none;
-}
 a#new {
     margin: 2px auto;
     display: block;
     width: 26px;
     height: 26px;
     background: url(img/new.png) no-repeat;
+}
+a#new span {
+    display: none;
 }
 a#new:target {
     background: url(img/lose.png) no-repeat;
