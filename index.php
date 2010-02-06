@@ -152,7 +152,6 @@ you how many mines are left to find.</p>
 </article>
 
 <article id="game">
-<div id="timer"><div id="timer-1"></div><div id="timer-2"></div><div id="timer-3"></div></div>
 <header>
 <a title="Minesweeper" href="." rel="sidebar" class="minimize button"><span title="Bookmark CSS Minesweeper">Bookmark to play in the sidebar</span></a>
 <h1>Minesweeper</h1>
@@ -174,7 +173,9 @@ you how many mines are left to find.</p>
 </ul>
 <?php
     echo "<a href=\"#game\" id=\"lose\"><span>Go to top.</span></a>";
-    echo "<p id=\"controls\"><a accesskey=\"N\" title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;n=$bombs&amp;gameid=".rand()."\"><span>Start <em>n</em>ew game</span></a></p>\n";
+    echo "<p id=\"controls\">";
+    echo "<div id=\"timer\"><div id=\"timer-1\"></div><div id=\"timer-2\"></div><div id=\"timer-3\"></div></div>";
+    echo "<a accesskey=\"N\" title=\"Start new game\" id=\"new\" href=\"?w=$width&amp;h=$height&amp;n=$bombs&amp;gameid=".rand()."\"><span>Start <em>n</em>ew game</span></a></p>\n";
     generate_html_table($grid);
     echo "</article>\n";
     include('README.html');

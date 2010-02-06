@@ -8,8 +8,8 @@
     height: 25px;
     width: 44px;
     position: absolute;
+    margin: 2px 5px 0 0;
     right: 0;
-    top: 45px;
     border-top: 1px solid #777;
     border-left: 1px solid #777;
     border-right: 1px solid white;
@@ -120,9 +120,10 @@ article {
 }
 
 a#new {
-    margin: 2px auto;
+    margin-top: 2px;
+    z-index: 600;
     padding: 2px;
-    display: block;
+    display: inline-block;
     width: 17px;
     height: 17px;
     background: #c0c0c0 url(img/smiley.png) no-repeat;
@@ -246,9 +247,10 @@ td:hover a.info:visited {
 table:after {
     content: counter(bombs, decimal-leading-zero);
     position: absolute;
-    top: 45px;
+    z-index: 550;
+    top: 40px;
     left: 0;
-    margin: 0 0 0 5px;
+    margin: 2px 0 0 5px;
     color: #f70001;
     font-family: digital, monospace;
     font-size: 25px;
