@@ -282,16 +282,23 @@ td.count a.info:visited span {
 
 /* About */
 #about {
-    background-image: url(img/minesweeper-64.png);
-    background-repeat: no-repeat;
-    background-position: center 2.5em;
     top: 0;
     left: 0;
     margin: 10% 25%;
 }
 
-#about header + p {
-    margin-top: 74px;
+#about h2 {
+    background-image: url(img/minesweeper-64.png);
+    background-repeat: no-repeat;
+    background-position: 10px 0;
+    text-align: center;
+    margin: 10px 0;
+    padding: 1em 80px;
+    height: 70px;
+}
+#about h2 span {
+    display: block;
+    font-size: .85em;
 }
 
 .dialog li {
