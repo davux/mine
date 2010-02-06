@@ -136,6 +136,18 @@ if ($redirect) {
 <![endif]-->
 <title>Minesweeper, game #<?php echo "$gameid ($width x $height, $bombs mines)" ?></title>
 <body id="top">
+
+<article class="dialog" id="intro">
+<header><a class="close button" href="#top"><span>OK...</span></a>
+<h1>Introduction</h1></header>
+<p><strong>This is a minesweeper</strong>. There are <?php echo $bombs;?> mines, you need to find them by clicking around... but not on the mines!</p>
+<p>As an indication, the numbers tell you <strong>how many mines</strong> there are in the 8 adjacent cells.</p>
+<p>When you guessed the location of a mine, click on the little white square to put a <strong>flag</strong> on the desired cell. The red counter tells
+you how many mines are left to find.</p>
+<p>To start a new game, either click on the smiley face or choose a difficulty level in the <em>Game</em> menu.</p>
+<p><a href="#about">More information about the game...</a></p>
+</article>
+
 <article id="game">
 <div id="timer"><div id="timer-1"></div><div id="timer-2"></div><div id="timer-3"></div></div>
 <header>
@@ -149,9 +161,12 @@ if ($redirect) {
     <li><a href="?w=30&amp;h=16&amp;n=99">Expert</a></li></ul>
   </li>
   <li>Help
-    <ul><li><a href="http://da.weeno.net/blog/?post/2010/01/29/Comment-miner-son-apr%C3%A8s-midi">Presentation en francais (blog)</a></li>
-    <li><a href="TODO">Want to help?</a></li>
-    <li><a href="#about">About CSS Minesweeper...</a></li></ul>
+    <ul>
+      <li><a href="#intro">How to play?</a></li>
+      <li><a href="http://da.weeno.net/blog/?post/2010/01/29/Comment-miner-son-apr%C3%A8s-midi">Presentation en francais (blog)</a></li>
+      <li><a href="TODO">Want to help?</a></li>
+      <li><a href="#about">About CSS Minesweeper...</a></li>
+    </ul>
   </li>
 </ul>
 <?php
