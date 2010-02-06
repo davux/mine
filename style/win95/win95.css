@@ -28,6 +28,13 @@
     -moz-transition: background-position 1000s linear;
     transition: background-position 1000s linear;
 }
+/* "Prevent" the counter from going back when the mouse leaves the window */
+html:hover #timer1, html:hover #timer2, html:hover #timer3 {
+    -webkit-transition: background-position 1000000000s cubic-bezier(1,0,1,0);
+    -o-transition: background-position 1000000000s cubic-bezier(1,0,1,0);
+    -moz-transition: background-position 1000000000s cubic-bezier(1,0,1,0);
+    transition: background-position 1000000000s cubic-bezier(1,0,1,0);
+}
 /* It should be 180, 1800, 18000 so that the counter stop at "999". Instead,
    we do a whole loop from "000" to "000", so that browsers that don't support
    transitions will keep showing "000". */
