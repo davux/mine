@@ -1,0 +1,23 @@
+/* Menu */
+ul#menu {
+    text-align: left;
+}
+ul#menu li {
+    display: inline;
+    position: relative;
+}
+ul#menu li ul {
+    display: none;
+}
+ul#menu:focus {
+    outline: 0;
+}
+
+ul#menu li:hover ul {
+    display: block;
+    position: absolute;
+}
+ul#menu li ul li {
+    display: block;
+    white-space: nowrap;
+}

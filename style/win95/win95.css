@@ -1,3 +1,4 @@
+@import url("../menu.css");
 @font-face {
     font-family: Digital;
     src: url('digital.ttf');
@@ -164,26 +165,16 @@ a#new span {
     background-color: #d00;
 }
 
-/* Menu */
 ul#menu {
     font-size: .7em;
-    text-align: left;
     background-color: #bbb;
     padding: 3px;
     height: 1.2em;
     font-family: "Luxi sans", "Lucida Grande", Lucida, "Lucida Sans Unicode", sans-serif;
 }
 ul#menu li {
-    display: inline;
     padding: 3px 1ex;
     cursor: default;
-    position: relative;
-}
-ul#menu li ul {
-    display: none;
-}
-ul#menu:focus {
-    outline: 0;
 }
 ul#menu li:hover {
     background-color: #33c;
@@ -196,9 +187,8 @@ ul#menu li ul li a {
 ul#menu li ul li:hover a {
     color: white;
 }
+
 ul#menu li:hover ul {
-    display: block;
-    position: absolute;
     z-index: 600; /* higher than the CSS counter */
     background-color: #c6c6c6;
     border-right: 1px solid #444;
@@ -217,10 +207,8 @@ ul#menu li:hover ul {
     opacity: 0.9;
 }
 ul#menu li ul li {
-    display: block;
     margin: 0;
     padding: 1px 16px;
-    white-space: nowrap;
 }
 
 td.count a.info span {
