@@ -127,6 +127,16 @@ a#new span {
     background: url(img/lose.png) no-repeat;
 }
 
+/* The :target won't be permanent, but we have no other choice */
+#game:target td.bomb {
+    border: 1px solid transparent;
+}
+
+#game:target td.bomb a:focus,
+#game:target td.bomb a:hover { /* This one is in case the 1st one doesn't work */
+    background-color: #d00;
+}
+
 /* Menu */
 ul#menu {
     font-size: .7em;
