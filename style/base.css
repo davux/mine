@@ -101,7 +101,6 @@ p#controls {
     padding: 0;
     height: 30px;
     width: 100%;
-    z-index: 500;
 }
 /* #lose points to the same URL as the mines. When visited (game lost), the control bar expands so that
    it masks the board and makes it unclickable. */

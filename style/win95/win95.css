@@ -121,9 +121,9 @@ article {
 
 a#new {
     margin-top: 2px;
-    z-index: 600;
     padding: 2px;
     display: inline-block;
+    position: relative;
     width: 17px;
     height: 17px;
     background: #c0c0c0 url(img/smiley.png) no-repeat;
@@ -192,7 +192,7 @@ ul#menu li ul li:hover a {
 ul#menu li:hover ul {
     display: block;
     position: absolute;
-    z-index: 700;
+    z-index: 600; /* higher than the CSS counter */
     background-color: #c6c6c6;
     border-right: 1px solid #444;
     border-bottom: 1px solid #444;
@@ -247,7 +247,6 @@ td:hover a.info:visited {
 table:after {
     content: counter(bombs, decimal-leading-zero);
     position: absolute;
-    z-index: 550;
     top: 40px;
     left: 0;
     margin: 2px 0 0 5px;
@@ -274,7 +273,7 @@ td.count a.info:visited span {
     background-color: #c6c3c6;
     font-size: .5em;
     text-align: justify;
-    z-index: 1000;
+    z-index: 1000; /* on top of everything including the menu */
     position: absolute;
 }
 
