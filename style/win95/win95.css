@@ -63,6 +63,12 @@ span.flag {
     height: 16px;
 }
 
+#game:target td.count input:checked ~ span.flag {
+    background-image: url(img/mine-mistake.png);
+    background-position: 1px 2px;
+}
+
+
 input:checked + span.flag {
     position: absolute;
     margin-left: -8px;
