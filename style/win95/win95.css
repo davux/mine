@@ -287,11 +287,14 @@ td.count a.info:visited span {
     margin: 10% 25%;
 }
 
+.dialog h2 {
+    text-align: center;
+}
+
 #about h2 {
     background-image: url(img/minesweeper-64.png);
     background-repeat: no-repeat;
     background-position: 10px 0;
-    text-align: center;
     margin: 10px 0;
     padding: 1em 80px;
     height: 70px;

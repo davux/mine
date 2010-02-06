@@ -140,9 +140,10 @@ if ($redirect) {
 <article class="dialog" id="intro">
 <header><a class="close button" href="#top"><span>OK...</span></a>
 <h1>Introduction</h1></header>
-<p><strong>This is a minesweeper</strong>. There are <?php echo $bombs;?> mines, you need to find them by clicking around... but not on the mines!</p>
+<h2>Find the mines!</h2>
+<p>There are <?php echo $bombs;?> mines, you'll need to click around... but don't click on the mines!</p>
 <p>As an indication, the numbers tell you <strong>how many mines</strong> there are in the 8 adjacent cells.</p>
-<p>When you guessed the location of a mine, click on the little white square to put a <strong>flag</strong> on the desired cell. The red counter tells
+<p>When you've guessed the location of a mine, click on the little white square to put a <strong>flag</strong> on the desired cell. The red counter tells
 you how many mines are left to find.</p>
 <p>To start a new game, either click on the smiley face or choose a difficulty level in the <em>Game</em> menu.</p>
 <p><a href="#about">More information about the game...</a></p>
