@@ -1,0 +1,20 @@
+/* dialogs */
+.dialog {
+    display: none;
+    z-index: 1000; /* on top of everything including the menu */
+    position: absolute;
+}
+#intro:target,
+#about:target {
+    display: block;
+}
+.button {
+    float: right;
+    width: 16px;
+    height: 16px;
+    margin: 3px;
+}
+.button span {
+    display: none;
+}
+

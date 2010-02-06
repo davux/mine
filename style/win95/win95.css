@@ -1,4 +1,6 @@
 @import url("../menu.css");
+@import url("../dialogs.css");
+
 @font-face {
     font-family: Digital;
     src: url('digital.ttf');
@@ -271,12 +273,9 @@ td.count a.info:visited span {
 }
 
 .dialog {
-    display: none;
     background-color: #c6c3c6;
     font-size: .5em;
     text-align: justify;
-    z-index: 1000; /* on top of everything including the menu */
-    position: absolute;
 }
 
 #intro {
@@ -321,21 +320,8 @@ td.count a.info:visited span {
     display: block;
     text-align: center;
 }
-#intro:target,
-#about:target {
-    display: block;
-}
 .close {
     background: url(img/close.png) no-repeat;
-}
-.button {
-    float: right;
-    width: 16px;
-    height: 16px;
-    margin: 3px;
-}
-.button span {
-    display: none;
 }
 .minimize {
     background: url(img/minimize.png) no-repeat;
