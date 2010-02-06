@@ -70,8 +70,8 @@ td input {
     position: absolute;
     z-index: 500;
     margin-top: -5px;
-    margin-left: 5px;
-    background-color: white;
+    margin-left: 10px;
+    display: block;
     border: 1px solid black;
     opacity: 0.7;
 }
